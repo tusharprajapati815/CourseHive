@@ -1,0 +1,223 @@
+/* General Styles */
+body {
+  font-family: "Mukta";
+  font-style: normal;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero Section */
+.hero-header--billboard-container--Offlv {
+  position: relative;
+  text-align: left;
+  color: #0f0f0f;
+}
+
+.hero-header--billboard--UiSFW {
+  width: 100%;
+  height: auto;
+}
+
+.hero-header--text-container--5NCt- {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  padding: 2.1rem;
+}
+
+.hero-header--title--YnzQE {
+  font-size: 3rem;
+  /* margin-bottom: 1rem; */
+}
+
+.hero-header--subtitle--a2gpt {
+  font-size: 1.5rem;
+  /* margin-bottom: 1.5rem; */
+}
+
+.hero-header--cta--V-r5G {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  background-color: #070707;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.hero-header--cta--V-r5G:hover {
+  background-color: #c3c6c6;
+  color: #070707;
+}
+
+/* Value Props Section */
+.teach-page__container {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.teach-page__heading {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.why-udemy--value-props---crZI {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.value-props-module--prop--UqjHz {
+  max-width: 300px;
+  margin-bottom: 2rem;
+}
+
+.value-props-module--graphic--nBMBu img {
+  max-width: 100%;
+}
+
+.value-props-module--body--EWc3K {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.value-props-module--text--U5-Gi {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* By the Numbers Section */
+.by-the-numbers--container--7WqqM {
+  background-color: #183bc9;
+  padding: 2rem 1rem;
+  color: #f7f7f7;
+}
+
+.by-the-numbers--numbers--G5SHs {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.by-the-numbers--number--jHImr {
+  text-align: center;
+  margin: 1rem;
+}
+
+.ud-heading-xxxl {
+  font-size: 2.5rem;
+}
+
+.ud-heading-lg {
+  font-size: 1.5rem;
+}
+
+/* Support Section */
+.here-to-help--container--XGI7S {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.here-to-help--teach-image-1--yeGN-,
+.here-to-help--teach-image-2--hPeF9 {
+  max-width: 480px;
+  height: auto;
+  margin: 0 2rem;
+}
+
+.here-to-help--text--alzGy {
+  max-width: 600px;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.here-to-help--title--muhp- {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ud-text-with-links strong {
+  font-weight: 700;
+}
+
+/* Call to Action Section */
+.teach-page__pale-container {
+  background-color: #f7f7f7;
+  padding: 2rem 1rem;
+}
+
+.teach-page__margin-center {
+  margin: 0 auto;
+}
+
+.simple-cta--subtitle--Rgzb6 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.simple-cta--cta--bNXu8 {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  background-color: #0f0f0f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 30%;
+}
+
+.simple-cta--cta--bNXu8:hover {
+  background-color: #c3c6c6;
+  color: #070707;
+}
+
+@media (max-width: 767px) {
+  .hero-header--billboard--UiSFW {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-header--text-container--5NCt- {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .value-props-module--props--OB9-v {
+    flex-direction: column;
+  }
+
+  .value-props-module--prop--UqjHz {
+    margin-bottom: 2rem;
+  }
+
+  .by-the-numbers--numbers--G5SHs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .by-the-numbers--number--jHImr {
+    margin: 1rem;
+  }
+
+  .here-to-help--teach-image-1--yeGN-,
+  .here-to-help--teach-image-2--hPeF9 {
+    width: 100%;
+    height: auto;
+  }
+
+  .here-to-help--text--alzGy {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .simple-cta--subtitle--Rgzb6 {
+    text-align: center;
+  }
+}

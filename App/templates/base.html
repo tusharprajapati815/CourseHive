@@ -1,0 +1,139 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock %}</title>
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="{% static 'image/apple-touch-icon.png' %}"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/bmin.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/locomotive.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mukta.css' %}" />
+    <link
+      href="{% static 'fontawesomefree/css/all.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    {% block css %} {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"
+          ><img src="{% static 'image/logo-no-background.png' %}" alt="LOGO"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- right
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+          </ul> -->
+
+          <!-- Left -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/instructor"
+                >Become a Instructor</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/newsletter">News letter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/cartlist">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link active" href="#"
+                >Welcome,
+                <b style="color: rgb(16, 100, 211); font-size: 18px"
+                  >{{user}}</b
+                ></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/my-courses">My Learnings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/logout">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/signup">Signup</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <footer class="footer py-5 mt-5">
+      <div class="container">
+        <span class="text-body-secondary"
+          ><ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+              <a href="/" class="nav-link px-2">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-2" href="/instructor"
+                >Become a Instructor</a
+              >
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a href="/my-courses" class="nav-link px-2">My Learnings</a>
+            </li>
+            <li class="nav-item">
+              <a href="/logout" class="nav-link px-2">Log out</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a href="/login" class="nav-link px-2">Log in</a>
+            </li>
+            <li class="nav-item">
+              <a href="/signup" class="nav-link px-2">SignUp</a>
+            </li>
+            {% endif %}
+          </ul>
+          <p class="text-center text-body-secondary">
+            © 2024 Company, Inc
+          </p></span
+        >
+      </div>
+    </footer>
+
+    <!-- <div class="page-wrapper d-flex flex-column min-vh-100">
+      <footer class="py-3 my-4"></footer>
+    </div> -->
+    <script src="{%static 'js/popper.js'%}"></script>
+    <script src="{%static 'js/bmin.js'%}"></script>
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    {% block js %} {% endblock %}
+  </body>
+</html>

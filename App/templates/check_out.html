@@ -1,0 +1,84 @@
+{% extends './base.html' %} {% load course_custom_tags %} {% load static %} {%
+block title %} Checkout {% block content %}
+
+<div class="container">
+  <br />
+  <div class="row mt-4 ms-5">
+    <div class="col">
+      <p class="display-5">{{course.name}}</p>
+      <hr />
+      <p class="display-5">
+        Total Amount :
+        <b
+          >{% cal_sellprice course.price course.discount as value%}
+          {{value|currency}}</b
+        >
+      </p>
+      <a
+        class="w-100 btn btn-primary btn-lg border"
+        href="?action=create_payment"
+        >Coutinue to Payment</a
+      >
+    </div>
+
+    <div class="col mx-auto">
+      <div class="card mr-auto" style="width: 20rem">
+        <img
+          src="{{course.thumbnail.url}}"
+          class="card-img-top"
+          alt="{{ i.name }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ course.name }}</h5>
+          <div class="card-text m-0 p-0">
+            <div class="price">
+              <span
+                >Save {{ course.discount }}% <br />
+                <del>{{ course.price | currency }}</del></span
+              >
+              &nbsp;&nbsp;
+              <h1>
+                {% cal_sellprice course.price course.discount as value%}
+                {{value|currency}}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% if order is not None %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+  var options = {
+    key: "rzp_test_ppuWc208CnxWpO", // Enter the Key ID generated from the Dashboard
+    name: "CourseHive", //your business name
+    description: "Payment for {{course.name}}",
+    image: "{% static 'image/logo-color.png' %}",
+    order_id: "{{order.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    callback_url: "http://localhost:8000/verify_payment",
+    prefill: {
+      //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+      name: "{{user.username}}", //your customer's name
+      email: "{{user.email}}",
+      // contact: "9000090000", //Provide the customer's phone number for better conversion rates
+    },
+    theme: {
+      color: "#3399cc",
+    },
+  };
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
+</script>
+{% endif %} {% if error is not None %}
+
+<script>
+  window.onload = () => {
+    alert("{{error}}");
+  };
+</script>
+
+{% endif %} {% endblock %} {% block css%}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}" /> {% endblock %}

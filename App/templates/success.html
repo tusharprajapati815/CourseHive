@@ -1,0 +1,21 @@
+{%extends './base.html'%} {%load course_custom_tags%} {%load static%} {% block
+title %} Success {%block content%}
+<div class="payment text-center h-100">
+  <img
+    src="https://www.svgrepo.com/show/157817/success.svg"
+    alt=""
+    class="img-fluid"
+    style="height: 50px"
+  />
+  <h2>Thanks Your Payment has been received</h2>
+</div>
+{% endblock %}{% block css %}
+<style>
+  .payment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+{% endblock %}

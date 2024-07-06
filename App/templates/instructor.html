@@ -1,0 +1,279 @@
+{% extends './base.html' %} {% load course_custom_tags %} {% load static %} {%
+block title %} Instructor {% block content %}
+<div class="hero-header--billboard-container--Offlv">
+  <img
+    src="{% static 'image/udemy.jpg' %}"
+    alt=""
+    width="1800"
+    height="600"
+    class="hero-header--billboard--UiSFW"
+    loading="lazy"
+  />
+  <div class="ud-container hero-header--text-container--5NCt-">
+    <h1
+      class="ud-heading-serif-xxl teach-page__main-heading hero-header--title--YnzQE"
+    >
+      Come teach with us
+    </h1>
+    <p class="ud-text-lg hero-header--subtitle--a2gpt">
+      Become an instructor and change lives
+    </p>
+    <p class="ud-text-lg hero-header--subtitle--a2gpt">— including your own</p>
+    <button
+      type="button"
+      class="ud-btn ud-btn-large ud-btn-primary ud-heading-md hero-header--cta--V-r5G"
+      data-purpose="bai-cta"
+      data-bs-toggle="modal"
+      data-bs-target="#modalSignin"
+    >
+      <span>Get started</span>
+    </button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div
+  class="modal fade"
+  id="modalSignin"
+  tabindex="-1"
+  aria-labelledby="modalSigninLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Become a CourseHive Instructor</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control rounded-3"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control rounded-3"
+              id="floatingPassword"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button
+            class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
+            type="submit"
+          >
+            Sign up
+          </button>
+          <small class="text-body-secondary"
+            >By clicking Sign up, you agree to the terms of use.</small
+          >
+          <hr class="my-4" />
+          <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+          <button
+            class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3"
+            type="submit"
+          >
+            <svg class="bi me-1" width="16" height="16">
+              <use xlink:href="#twitter"></use>
+            </svg>
+            Sign up with Twitter
+          </button>
+          <button
+            class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3"
+            type="submit"
+          >
+            <svg class="bi me-1" width="16" height="16">
+              <use xlink:href="#facebook"></use>
+            </svg>
+            Sign up with Facebook
+          </button>
+          <button
+            class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3"
+            type="submit"
+          >
+            <svg class="bi me-1" width="16" height="16">
+              <use xlink:href="#github"></use>
+            </svg>
+            Sign up with GitHub
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ud-container teach-page__container">
+  <h2 class="ud-heading-serif-xl teach-page__heading teach-page__margin-center">
+    So many reasons to start
+  </h2>
+  <div class="why-udemy--value-props---crZI">
+    <div
+      class="value-props-module--props--OB9-v value-props-module--props--large--K3Qb6"
+    >
+      <div class="value-props-module--prop--UqjHz">
+        <div class="value-props-module--graphic--nBMBu">
+          <img
+            src="{% static 'image/value-prop-teach-v3.jpg' %}"
+            alt=""
+            width="100"
+            height="100"
+            loading="lazy"
+          />
+        </div>
+        <div class="ud-heading-lg value-props-module--body--EWc3K">
+          Teach your way
+        </div>
+        <div
+          class="value-props-module--body--EWc3K value-props-module--text--U5-Gi"
+        >
+          Publish the course you want, in the way you want, and always have
+          control of your own content.
+        </div>
+      </div>
+      <div class="value-props-module--prop--UqjHz">
+        <div class="value-props-module--graphic--nBMBu">
+          <img
+            src="{% static 'image/value-prop-inspire-v3.jpg' %}"
+            alt=""
+            width="100"
+            height="100"
+            loading="lazy"
+          />
+        </div>
+        <div class="ud-heading-lg value-props-module--body--EWc3K">
+          Inspire learners
+        </div>
+        <div
+          class="value-props-module--body--EWc3K value-props-module--text--U5-Gi"
+        >
+          Teach what you know and help learners explore their interests, gain
+          new skills, and advance their careers.
+        </div>
+      </div>
+      <div class="value-props-module--prop--UqjHz">
+        <div class="value-props-module--graphic--nBMBu">
+          <img
+            src="{% static 'image/value-prop-get-rewarded-v3.jpg' %}"
+            alt=""
+            width="100"
+            height="100"
+            loading="lazy"
+          />
+        </div>
+        <div class="ud-heading-lg value-props-module--body--EWc3K">
+          Get rewarded
+        </div>
+        <div
+          class="value-props-module--body--EWc3K value-props-module--text--U5-Gi"
+        >
+          Expand your professional network, build your expertise, and earn money
+          on each paid enrollment.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="by-the-numbers--container--7WqqM">
+  <div class="ud-container by-the-numbers--numbers--G5SHs">
+    <div class="by-the-numbers--number--jHImr">
+      <div class="ud-heading-xxxl">70M</div>
+      <p>Students</p>
+    </div>
+    <div class="by-the-numbers--number--jHImr">
+      <div class="ud-heading-xxxl">74+</div>
+      <p>Languages</p>
+    </div>
+    <div class="by-the-numbers--number--jHImr">
+      <div class="ud-heading-xxxl">970M</div>
+      <p>Enrollments</p>
+    </div>
+    <div class="by-the-numbers--number--jHImr">
+      <div class="ud-heading-xxxl">180+</div>
+      <p>Countries</p>
+    </div>
+    <div class="by-the-numbers--number--jHImr">
+      <div class="ud-heading-xxxl">16,000+</div>
+      <p>Enterprise customers</p>
+    </div>
+  </div>
+</div>
+
+<div class="ud-container teach-page__container here-to-help--container--XGI7S">
+  <img
+    class="here-to-help--teach-image-1--yeGN-"
+    src="{% static 'image/support-1-v3.jpg' %}"
+    alt=""
+    width="480"
+    height="480"
+    loading="lazy"
+  />
+  <div class="here-to-help--text--alzGy">
+    <div>
+      <h2
+        class="ud-heading-serif-xl teach-page__heading teach-page__margin-center here-to-help--title--muhp-"
+      >
+        You won’t have to do it alone
+      </h2>
+      <p
+        class="ud-text-lg ud-text-with-links teach-page__margin-center"
+        data-purpose="safely-set-inner-html:here-to-help:help-text"
+      >
+        Our <strong>Instructor Support Team</strong> is here to answer your
+        questions and review your test video, while our
+        <strong>Teaching Center</strong> gives you plenty of resources to help
+        you through the process. Plus, get the support of experienced
+        instructors in our <strong>online community</strong>.
+      </p>
+    </div>
+  </div>
+  <img
+    class="here-to-help--teach-image-2--hPeF9"
+    src="{% static 'image/support-2-v3.jpg' %}"
+    srcset="
+      https://s.udemycdn.com/teaching/support-2-v3.jpg    1x,
+      https://s.udemycdn.com/teaching/support-2-2x-v3.jpg 2x
+    "
+    alt=""
+    width="480"
+    height="480"
+    loading="lazy"
+  />
+</div>
+
+<div class="teach-page__pale-container">
+  <div class="ud-container teach-page__container">
+    <h2
+      class="ud-heading-serif-xxl teach-page__heading teach-page__margin-center"
+    >
+      Become an instructor today
+    </h2>
+    <p class="ud-text-xl simple-cta--subtitle--Rgzb6">
+      Join one of the world’s largest online learning marketplaces.
+    </p>
+    <button
+      type="button"
+      class="ud-btn ud-btn-large ud-btn-primary ud-heading-md simple-cta--cta--bNXu8"
+      data-purpose="bai-cta-footer"
+      data-bs-toggle="modal"
+      data-bs-target="#modalSignin"
+    >
+      <span>Get started</span>
+    </button>
+  </div>
+</div>
+{% endblock %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/instructor.css' %}" />
+{% endblock %}

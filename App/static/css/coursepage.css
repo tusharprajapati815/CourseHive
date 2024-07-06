@@ -1,0 +1,53 @@
+@import url("{% static 'css/locomotive.css' %}");
+
+.card {
+  border: none;
+}
+
+.videos-button {
+  background-color: #888;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+/* width */
+.overflow-y-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.overflow-y-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.overflow-y-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.overflow-y-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.active-video {
+  background-color: #2a2626;
+}
+
+a {
+  color: #555;
+}
+
+.active-video-link {
+  color: #f1f1f1;
+}
+
+.no-preview {
+  cursor: not-allowed;
+}

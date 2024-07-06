@@ -1,0 +1,61 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Mukta", sans-serif;
+}
+
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  /* box-shadow: 0 4px 2px -2px gray; */
+}
+
+.navbar-brand img {
+  width: 200px;
+  height: 40px;
+}
+
+.custom-navbar {
+  background-color: white;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover {
+  color: rgb(128, 128, 228);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer .nav .nav-item .nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.footer .nav .nav-item .nav-link:hover {
+  color: rgb(128, 128, 228);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

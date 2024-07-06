@@ -1,0 +1,166 @@
+{% extends './base.html' %} {% load course_custom_tags %} {% load static %} {%
+block title %} Newsletter {% block content %}
+
+<!-- Header -->
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-info">
+  <div class="col-lg-6 px-0">
+    <h1 class="display-4 fst-italic text-muted">News Letter</h1>
+    <div class="lead my-3">
+      <h3>Stay Informed with Our Weekly Newsletter!</h3>
+      <p>
+        Get exclusive content, industry updates, and practical tips delivered
+        straight to your inbox. Subscribe now and never miss out on the latest
+        trends and events!
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Search -->
+<div class="search-container">
+  <div class="row">
+    <div
+      class="col-md-12 d-flex justify-content-evenly align-items-center mb-3 pr-5"
+    >
+      <form action="" class="d-flex align-items-center">
+        <!-- search bar -->
+        <input type="text" name="country" class="form-control me-2 p-2" />
+        <input type="submit" value="search" class="btn btn-primary me-2 p-2" />
+
+        <!-- category dropdown -->
+        <div class="dropdown p-2">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Select Category
+          </button>
+          <div
+            class="dropdown-menu w-280px"
+            aria-labelledby="dropdownMenuButton"
+          >
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a
+                  class="dropdown-item d-flex align-items-center gap-2 py-2"
+                  href="{% url 'newsletter' %}?category=health"
+                >
+                  <span
+                    class="d-inline-block bg-success rounded-circle p-1"
+                  ></span>
+                  Health
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item d-flex align-items-center gap-2 py-2"
+                  href="{% url 'newsletter' %}?category=business"
+                >
+                  <span
+                    class="d-inline-block bg-primary rounded-circle p-1"
+                  ></span>
+                  Business
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item d-flex align-items-center gap-2 py-2"
+                  href="{% url 'newsletter' %}?category=entertainment"
+                >
+                  <span
+                    class="d-inline-block bg-danger rounded-circle p-1"
+                  ></span>
+                  Entertainment
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item d-flex align-items-center gap-2 py-2"
+                  href="{% url 'newsletter' %}?category=science"
+                >
+                  <span
+                    class="d-inline-block bg-info rounded-circle p-1"
+                  ></span>
+                  Science
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item d-flex align-items-center gap-2 py-2"
+                  href="{% url 'newsletter' %}?category=sports"
+                >
+                  <span
+                    class="d-inline-block bg-warning rounded-circle p-1"
+                  ></span>
+                  Sports
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item d-flex align-items-center gap-2 py-2"
+                  href="{% url 'newsletter' %}?category=technology"
+                >
+                  <span
+                    class="d-inline-block bg-secondary rounded-circle p-1"
+                  ></span>
+                  Technology
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- CARD -->
+<div class="container">
+  <div class="row mb-2">
+    {% for i in articles %}
+    <div class="col-md-6">
+      <div
+        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative fixed-height-div"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success-emphasis"
+            >{{i.source.name}}</strong
+          >
+          <h4 class="mb-0">{{i.title}}</h4>
+          <br />
+          <h6 class="mb-0"><b>Author: </b>{{i.author}}</h6>
+          <br />
+          <div class="mb-1 text-body-secondary">
+            <b>Date: </b> {{i.publishedAt}}
+          </div>
+          <p class="mb-auto">{{i.description}}</p>
+          <a
+            href="{{i.url}}"
+            class="icon-link gap-1 icon-link-hover stretched-link"
+            target="_blank"
+          >
+            Continue reading
+            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+          </a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img
+            src="{{i.urlToImage}}"
+            alt="Placeholder: Thumbnail"
+            class="bd-placeholder-img"
+            width="300"
+            style="object-fit: cover; height: 100%"
+          />
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}{% block css %}
+<link rel="stylesheet" href="{% static 'newsletter.css' %}" />
+{% endblock %}

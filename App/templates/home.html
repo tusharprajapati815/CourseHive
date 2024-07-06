@@ -1,0 +1,261 @@
+{% extends './base.html' %} {% load course_custom_tags %} {% load static %} {%
+block title %} Home {% block content %}
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="copy">
+          <!-- <div class="text-label">LOGO</div> -->
+          <div class="text-hero-bold">All the skills you need in one place</div>
+          <div class="text-hero-regular">
+            From critical skills to technical topics, CourseHive supports your
+            professional development.
+          </div>
+          <div class="cta">
+            <form action="{% url 'course_search' %}" method="post">
+              {% csrf_token %}
+              <input
+                type="text"
+                name="search"
+                style="padding: 0.8rem 5rem; border-radius: 1.2rem"
+                placeholder="Search Courses Here"
+              />
+              <input
+                type="submit"
+                value="Search"
+                class="btn btn-secondary shadow-none ms-3"
+                style="padding: 0.5rem 2rem; border-radius: 0.4rem"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img
+          src="{% static 'image/illustration-4.png'%}"
+          class="w-100"
+          alt="img"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<hr />
+
+<!-- Categories -->
+<div class="container text-center my-5">
+  <h2 style="font-size: 40px">Featured Courses</h2>
+  <p class="text-secondary mb-5" style="font-size: 25px">
+    Discover Your Perfect Program In Our Courses.
+  </p>
+  <div class="d-flex justify-content-center my-4 flex-wrap">
+    <a href="/" class="category-btn">All Categories</a>
+    {% for category in categories %}
+    <a href="/category/{{ category }}" class="category-link">{{ category }}</a>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Main Page -->
+
+<div class="container">
+  <div class="row row row-cols-1 row-cols-md-3 g-4 mt-3 m-0 p-0 mt-3">
+    {% for i in courses %}
+    <div class="col mx-auto">
+      <div class="card mx-auto" style="width: 20rem">
+        <img
+          src="{{i.thumbnail.url}}"
+          class="card-img-top"
+          alt="{{ i.name }}"
+        />
+
+        <!-- Cart -->
+        <div class="cart-icon">
+          <ul class="example-2">
+            <li class="icon-content">
+              <a href="addtocart/{{i.id}}" aria-label="cart" data-social="cart">
+                + Add
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="message" style="display: none">
+          Your course has been added to cart
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ i.name }}</h5>
+          <p class="card-text">{{i.slug}}</p>
+          <div class="card-text m-0 p-0">
+            <div class="price">
+              <span>
+                {% if i.discount > 0 %} Save {{ i.discount }}% <br />
+                <del>{{ i.price | currency }}</del>{% endif %}</span
+              >
+              &nbsp;&nbsp;
+              <h1>
+                {%cal_sellprice i.price i.discount as value%} {%if value == 0%}
+                FREE {%else%} {{value|currency}} {%endif%}
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer p-0 m-0">
+          {% is_enrolled request i as enrolled %}
+          <div class="row g-0">
+            {% if enrolled %}
+            <div class="col border-right">
+              <a href="/course/{{i.slug}}" class="btn btn-light d-block w-100"
+                >Start Course</a
+              >
+            </div>
+            {% else %}
+            <div class="col border-end">
+              <a
+                href="/check-out/{{i.slug}}"
+                class="btn btn-light d-block w-100"
+                >Enroll Now</a
+              >
+            </div>
+            <div class="col">
+              <a href="/course/{{i.slug}}" class="btn btn-light d-block w-100"
+                >Show More</a
+              >
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<hr />
+
+<!-- Reviews -->
+<section class="review pt-5 pt-md-11 pb-9 mt-5 p-3">
+  <div class="container">
+    <div class="section-title mb-2">
+      <h1 class="mb-2">What our students have to say</h1>
+      <p class="font-size-lg text-capitalize mb-4">
+        Discover your perfect program in our courses.
+      </p>
+    </div>
+
+    <div
+      class="flickity-carousel"
+      data-flickity='{ "pageDots": true, "prevNextButtons": false, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true }'
+    >
+      {% for review in reviews %}
+      <div class="carousel-cell col-12 col-md-6 col-xl-4 py-3">
+        <div class="card">
+          <div class="card-content">
+            <div class="avatar">
+              {% if review.image %}
+              <img src="{{ review.image.url }}" alt="{{ review.name }}" />
+              {% else %}
+              <img src="path/to/default/avatar.jpg" alt="{{ review.name }}" />
+              {% endif %}
+            </div>
+            <div class="card-text">
+              <h5>{{ review.name }}</h5>
+              <span>{{ review.course }}</span>
+            </div>
+          </div>
+          <p>{{ review.description | safe }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<hr />
+
+<!-- Companies -->
+<section class="ud-container">
+  <div class="partners-banner_wrapper__E0G6k">
+    <div class="partners-banner_content__Ohhs3">
+      <h2 class="partners-banner_heading__3jvRF">
+        Trusted by over 15,000 companies and millions of learners around the
+        world
+      </h2>
+      <ul class="ud-unstyled-list partner-logos_list__gP06a">
+        <li class="partner-logos_item__p5ot7">
+          <img
+            src="https://cms-images.udemycdn.com/content/tqevknj7om/svg/volkswagen_logo.svg?position=c&amp;quality=80&amp;x.app=portals"
+            alt="Volkswagen logo gray and white logo"
+            loading="lazy"
+          />
+        </li>
+        <li class="partner-logos_item__p5ot7">
+          <img
+            src="https://cms-images.udemycdn.com/content/2gevcc0kxt/svg/samsung_logo.svg?position=c&amp;quality=80&amp;x.app=portals"
+            alt="Samsung logo gray and white logo"
+            loading="lazy"
+          />
+        </li>
+        <li class="partner-logos_item__p5ot7">
+          <img
+            src="https://cms-images.udemycdn.com/content/mueb2ve09x/svg/cisco_logo.svg?position=c&amp;quality=80&amp;x.app=portals"
+            alt="Cisco logo gray and white logo"
+            loading="lazy"
+          />
+        </li>
+        <li class="partner-logos_item__p5ot7">
+          <img
+            src="https://cms-images.udemycdn.com/content/ocud9ia7cf/svg/vimeo_logo.svg?position=c&amp;quality=80&amp;x.app=portals"
+            alt="Vimeo logo gray and white logo"
+            loading="lazy"
+          />
+        </li>
+        <li class="partner-logos_item__p5ot7">
+          <img
+            src="https://cms-images.udemycdn.com/content/bthyo156te/svg/procter_gamble_logo.svg?position=c&amp;quality=80&amp;x.app=portals"
+            alt="Procter &amp; Gamble logo gray and white logo"
+            loading="lazy"
+          />
+        </li>
+        <li class="partner-logos_item__p5ot7">
+          <img
+            src="https://cms-images.udemycdn.com/content/luqe0d6mx2/svg/hewlett_packard_enterprise_logo.svg?position=c&amp;quality=80&amp;x.app=portals"
+            alt="Hewlett Packard logo gray and white logo"
+            loading="lazy"
+          />
+        </li>
+        <li class="partner-logos_item__p5ot7">
+          <img
+            src="https://cms-images.udemycdn.com/content/siaewwmkch/svg/citi_logo.svg?position=c&amp;quality=80&amp;x.app=portals"
+            alt="Citi logo gray and white logo"
+            loading="lazy"
+          />
+        </li>
+        <li class="partner-logos_item__p5ot7">
+          <img
+            src="https://cms-images.udemycdn.com/content/swmv0okrlh/svg/ericsson_logo.svg?position=c&amp;quality=80&amp;x.app=portals"
+            alt="Ericsson logo gray and white logo"
+            loading="lazy"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<link rel="stylesheet" href="{% static 'css/theme.css' %}" />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+/>
+{% endblock %}{% block js %}
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".flickity-carousel").flickity();
+  });
+</script>
+
+{% endblock %}

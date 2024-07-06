@@ -1,0 +1,252 @@
+.price {
+  font-size: 1.2rem;
+}
+
+/* hero */
+:root {
+  /* color */
+  --primary: #fbc257;
+  --primary-light: #fccc73;
+  --dark-brown: #341413;
+  --gray-1: #798092;
+
+  /* font size */
+  --header-1: 64px;
+
+  --text-regular: 16px;
+
+  /* font weight */
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+}
+
+section.hero {
+  margin: 5rem 0;
+}
+
+.text-label,
+.text-hero-bold,
+.text-hero-regular {
+  margin: 24px 0;
+}
+
+.text-label {
+  color: var(--primary);
+  font-size: var(--text-regular);
+  font-weight: var(--font-weight-regular);
+  line-height: 31px;
+}
+
+.text-hero-bold {
+  color: var(--dark-brown);
+  font-size: var(--header-1);
+  font-weight: var(--font-weight-bold);
+  line-height: 74px;
+}
+
+.text-hero-regular {
+  color: var(--gray-1);
+  font-size: var(--text-regular);
+  font-weight: var(--font-weight-regular);
+  line-height: 31px;
+}
+
+/* Category */
+.category-btn {
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  color: #fff;
+  background-color: #002e6e;
+  text-decoration: none;
+}
+.category-link {
+  color: #002e6e;
+  text-decoration: none;
+  margin: 5px;
+}
+.category-link:hover {
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  color: #fff;
+  background-color: #002e6e;
+}
+
+/* review */
+.review .section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.review .section-title h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.review .section-title p {
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.review .card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: all 0.3s;
+  height: 100%;
+}
+.review .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+.review .card-content {
+  display: flex;
+  align-items: center;
+}
+.review .avatar {
+  width: 80px;
+  height: 80px;
+  margin-right: 1rem;
+}
+.review .avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.review .card-text {
+  text-align: left;
+}
+.review .card h5 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+.review .card span {
+  display: block;
+  margin-bottom: 1rem;
+  color: #6c757d;
+}
+.review .card p {
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+.flickity-page-dots {
+  bottom: -25px;
+}
+
+@media (max-width: 576px) {
+  section.hero {
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .btn {
+    display: block;
+    margin: 1rem auto;
+  }
+
+  .text-label,
+  .text-hero-bold,
+  .text-hero-regular {
+    text-align: center;
+  }
+
+  .text-hero-bold {
+    font-size: var(--header-1);
+    font-weight: var(--font-weight-bold);
+    line-height: 64px;
+  }
+
+  section.hero img {
+    margin: 2rem 0;
+  }
+}
+
+/* CARD */
+.card {
+  height: 100%;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card img:hover {
+  transform: scale(0.98);
+}
+
+/* CART section */
+.cart-icon ul {
+  list-style: none;
+}
+
+.cart-icon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background-color: #3271e8;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+.example-2 {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.icon-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-content a {
+  color: white;
+  text-decoration: none;
+}
+
+/* section of companies */
+.ud-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b9b0b0;
+  padding: 2rem 0;
+  margin: 5rem 0;
+}
+
+.partners-banner_wrapper__E0G6k {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.partners-banner_content__Ohhs3 {
+  text-align: center;
+}
+
+.partners-banner_heading__3jvRF {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.partner-logos_list__gP06a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.partner-logos_item__p5ot7 {
+  margin: 0 1rem 1rem 0;
+}
+
+.partner-logos_item__p5ot7 img {
+  max-height: 30px;
+  filter: grayscale(100%);
+}

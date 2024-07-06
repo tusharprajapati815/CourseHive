@@ -1,0 +1,69 @@
+{% extends './base.html' %} {% load course_custom_tags %} {% load static %} {%
+block title %} Login {% block content %}
+
+<div class="form-container mt-5">
+  <h2>Log in</h2>
+  <form method="post">
+    {% csrf_token %}
+    <main class="form-signin w-100 m-auto">
+      <h1 class="h3 mb-3 fw-normal">Log in to your CourseHive account</h1>
+
+      {% if form.non_field_errors %}
+      <div class="alert alert-danger">
+        {% for error in form.non_field_errors %} {{ error }} {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Email Field -->
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control {% if form.username.errors %}is-invalid{% endif %}"
+          id="floatingEmail"
+          placeholder="name@example.com"
+          name="{{ form.username.html_name }}"
+          value="{{ form.username.value|default_if_none:'' }}"
+          required
+          autofocus
+        />
+        <label for="floatingEmail">Email address</label>
+        <div class="invalid-feedback">
+          {% for error in form.username.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          class="form-control {% if form.password.errors %}is-invalid{% endif %}"
+          id="floatingPassword"
+          placeholder="Password"
+          name="{{ form.password.html_name }}"
+          required
+        />
+        <label for="floatingPassword">Password</label>
+        <div class="invalid-feedback">
+          {% for error in form.password.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <input
+        type="submit"
+        value="Log in"
+        class="btn btn-primary w-100 py-2 mb-3"
+      />
+      <div class="w-100 py-2 bg-white">
+        Don't have an account?<a href="signup">Sign up</a>
+      </div>
+    </main>
+  </form>
+</div>
+{% endblock %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}" />
+{% endblock %}
